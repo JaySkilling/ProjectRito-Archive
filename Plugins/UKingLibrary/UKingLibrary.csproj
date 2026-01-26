@@ -1,0 +1,136 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <OutputPath>bin</OutputPath>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows>
+    <IsOSX Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">true</IsOSX>
+    <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IsWindows)'=='true'">
+    <DefineConstants>$(DefineConstants);Windows</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IsOSX)'=='true'">
+    <DefineConstants>$(DefineConstants);OSX</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IsLinux)'=='true'">
+    <DefineConstants>$(DefineConstants);Linux</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CafeLibrary\CafeLibrary.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GLFrameworkEngine\GLFrameworkEngine.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MapStudio.UI\MapStudio.UI.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NCF-Library\AampLibrary\AampLibrary.csproj" />
+    <ProjectReference Include="..\..\NCF-Library\BfresLibrary\BfresLibrary.csproj" />
+    <ProjectReference Include="..\..\NCF-Library\BymlLibrary\BymlLibrary.csproj" />
+    <ProjectReference Include="..\..\NCF-Library\Yaz0Library\Yaz0Library.csproj" />
+    <ProjectReference Include="..\..\Toolbox.Core\Toolbox.Core.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HKX2Builders\HKX2Builders\HKX2Builders.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Emgu.CV.runtime.windows.cuda" Version="4.4.0.4099" />
+    <PackageReference Include="Syroot.BinaryData" Version="5.2.2" />
+    <PackageReference Include="Syroot.Maths" Version="1.5.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="ImGui.NET">
+      <HintPath>..\..\MapStudio\Lib\ImGui.NET.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\MapStudio\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\..\MapStudio\Lib\OpenTK.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BfshaLibrary">
+      <HintPath>..\..\MapStudio\Lib\BfshaLibrary.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Languages\English\UKingLibrary.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\HavokShape.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\HavokShape.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\NavmeshPaint.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\NavmeshPaint.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\Terrain.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\Terrain.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\Grass.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\Grass.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\Water.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\Water.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <Target Name="CopyFiles" AfterTargets="Build">
+    <ItemGroup>
+      <CopyFiles Include="$(ProjectDir)bin/net5.0/*.*" />
+    </ItemGroup>
+    
+    <MakeDir Directories="$(ProjectDir)..\..\MapStudio\bin\$(Configuration)\net5.0\Plugins\" />
+    <MakeDir Directories="$(ProjectDir)..\..\MapStudio\bin\x86\$(Configuration)\net5.0\Plugins\" />
+    <MakeDir Directories="$(ProjectDir)..\..\MapStudio\bin\x64\$(Configuration)\net5.0\Plugins\" />
+    <Copy SourceFiles="@(CopyFiles)" DestinationFolder="$(ProjectDir)..\..\MapStudio\bin\$(Configuration)\net5.0\Plugins\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(CopyFiles)" DestinationFolder="$(ProjectDir)..\..\MapStudio\bin\x86\$(Configuration)\net5.0\Plugins\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(CopyFiles)" DestinationFolder="$(ProjectDir)..\..\MapStudio\bin\x64\$(Configuration)\net5.0\Plugins\" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

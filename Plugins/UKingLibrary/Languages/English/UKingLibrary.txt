@@ -1,0 +1,55 @@
+﻿# Comments use # and will be ignored.
+# Label    - Translated Text
+
+RITO_EDITOR - Rito Editor
+
+SHOW_VISIBLE_ACTORS - Show Visible Actors
+SHOW_INVISIBLE_ACTORS - Show Invisible Actors
+SHOW_MAP_MODEL - Show Map Model
+SHOW_ACTOR_LINKS - Show Actor Links
+SHOW_COLLISION_SHAPES - Show Collision Shapes
+SHOW_NAVMESH_SHAPES - Show NavMesh Shapes
+
+OBJ - Obj
+PARAMETERS - Parameters
+ACTOR_NAME - Actor Name
+INCOMING_LINKS - Incoming Links
+OUTGOING_LINKS - Outgoing Links
+
+OBJECTS - Objects
+RAIL_PATHS - Rail Paths
+TERRAIN - Terrain
+FIELD_NAME - Field Name
+MAX_DETAIL - Max Detail
+DEBUG_SECTIONS - Debug Sections
+AREAS_SELECT_BY_BORDERS - Areas Select By Borders
+AREA_OPACITY - Area Opacity
+
+NAVMESH_TOOLS - NavMesh Tools (Only works in shrines as of now)
+
+CACHE_BAKED_COLLISION - Cache Baked Collision
+BAKE_COLLISION - Bake Collision
+PROCESSING - Processing
+
+COLLISION_TOOLS - Collision Tools
+BAKED_COLLISION_CACHED - Baked collision cached
+
+ONLYONE_TOOLS - OnlyOne Tools
+REMOVE_ONLYONE - Remove OnlyOne
+ONLYONE_REMOVER_NOTICE :
+Does not act on files currently being edited.
+Should be used with a project loaded.
+:
+
+BOTW_GAME_PATH - BotW Game Path
+BOTW_UPDATE_PATH - BotW Update Path
+BOTW_DLC_PATH - BotW DLC Path
+MOD_PATHS - Mod Paths
+
+LOAD_SECTION - Load Section
+LOAD_DUNGEON - Load Dungeon
+
+ACTOR_DOCUMENTATION - Actor Documentation
+INSTANCE_DOCUMENTATION - Instance Documentation
+NO_ACTOR_DOCUMENTATION_FOUND - No actor documentation found.
+UPDATE_ACTORDOCS - Update ActorDocs

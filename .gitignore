@@ -1,0 +1,24 @@
+CafeLibrary/obj
+CafeLibrary/bin
+GLFrameworkEngine/obj
+GLFrameworkEngine/bin
+MapStudio/obj
+MapStudio/bin
+MapStudio.UI/obj
+MapStudio.UI/bin
+Plugins/UKingLibrary/obj
+Plugins/UKingLibrary/bin
+Toolbox.Core/obj
+Toolbox.Core/bin
+HKX2Library/HKX2/obj
+NetExtensions/obj
+NetExtensions/bin
+.vs
+
+# Provide a working directory:
+working/
+
+# Visual Studio has a bug where the obj folder is written to the wrong spot:
+HKX2Library/
+
+CurveEditorLibraryCore/
