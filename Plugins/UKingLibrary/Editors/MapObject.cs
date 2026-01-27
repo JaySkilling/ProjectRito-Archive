@@ -358,13 +358,13 @@ namespace UKingLibrary
 
             clone.Properties = DeepCloneDictionary(Properties);
             clone.HashId = UKingEditor.GetHashId(MapData);
-            clone.DestLinks = DestLinks;
+            //clone.DestLinks = DestLinks; // Removed since giving clone DestLink affects the original DestLink when modified
             clone.ActorInfo = ActorInfo;
             clone.Parent = Parent;
             clone.MapData = MapData;
             clone.BakeCollision = BakeCollision;
             clone.ReloadActor();
-            clone.Render.DestObjectLinks.AddRange(DestLinks.Select(x => x.Object.Render));
+            //clone.Render.DestObjectLinks.AddRange(DestLinks.Select(x => x.Object.Render)); // No longer needing to render non-existent link on fresh clone
 
             return clone;
         }

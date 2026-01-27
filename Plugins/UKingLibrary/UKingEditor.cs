@@ -724,7 +724,7 @@ namespace UKingLibrary
             int index = mapData.Objs.Count;
             while (true)
             {
-                uint id = Crc32.Compute($"ID{index}");
+                uint id = Crc32.Compute($"ID{index}{mapData.RootNode}"); // Test if additional edits are needed to ensure unique ID generation throughout project
                 if (!mapData.Objs.ContainsKey(id))
                     return id;
                 index++;
