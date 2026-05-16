@@ -19,6 +19,6 @@ NetExtensions/bin
 working/
 
 # Visual Studio has a bug where the obj folder is written to the wrong spot:
-HKX2Library/
+
 
 CurveEditorLibraryCore/
